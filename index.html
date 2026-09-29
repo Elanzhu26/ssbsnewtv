@@ -1,0 +1,25 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SSBS News TV 新闻写作指南"><title>SSBS News TV: How to Write News Guideline</title><link rel="stylesheet" href="styles.css"></head><body>
+<header class="site-header"><a class="brand" href="index.html">SSBS NEWS <i>TV</i></a><nav><a href="article.html?article=performance">文艺表演</a><a href="article.html?article=sports">校园体育</a><a href="article.html?article=formal">正式活动</a></nav></header>
+<main class="home"><h1>Guideline:<br>How to Write News</h1><p class="intro">SSBS News TV 新闻写作指导</p><div class="article-list">
+<a class="article-link" href="article.html?article=performance"><span class="no">ARTICLE 01</span><span><h2>文艺表演写作指导</h2></span><span class="arrow">›</span></a>
+<a class="article-link" href="article.html?article=sports"><span class="no">ARTICLE 02</span><span><h2>如何报道运动会等一些校园体育活动？</h2></span><span class="arrow">›</span></a>
+<a class="article-link" href="article.html?article=formal"><span class="no">ARTICLE 03</span><span><h2>如何为大型、官方且较为严肃的事件与场合撰写新闻稿？</h2></span><span class="arrow">›</span></a>
+</div>
+<section class="qna" id="qna">
+  <p class="qna-label">Q&amp;A</p>
+  <h2>写作时还是遇到了困难！</h2>
+  <p class="qna-intro">在这里留下你的疑问，也可以回复其他人的问题。</p>
+  <form class="qna-form" id="question-form">
+    <label for="question-text">你的问题</label>
+    <textarea id="question-text" rows="4" maxlength="800" placeholder="写下你在新闻写作中遇到的问题……" required></textarea>
+    <div class="identity-row">
+      <span>发表方式</span>
+      <label><input type="radio" name="question-identity" value="anonymous" checked> 匿名</label>
+      <label><input type="radio" name="question-identity" value="named"> 实名</label>
+      <input class="name-input" id="question-name" type="text" maxlength="30" placeholder="请输入姓名" hidden>
+    </div>
+    <button type="submit">发表问题</button>
+  </form>
+  <div class="qna-list" id="qna-list" aria-live="polite"></div>
+</section>
+</main><script src="qna.js?v=2"></script></body></html>

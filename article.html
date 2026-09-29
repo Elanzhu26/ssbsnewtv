@@ -1,0 +1,49 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SSBS News TV 新闻写作指南"><title>SSBS News TV</title><link rel="stylesheet" href="styles.css"></head><body class="article-page" id="top">
+<header class="site-header"><a class="brand" href="index.html">SSBS NEWS <i>TV</i></a><nav><a href="index.html">全部文章</a></nav></header>
+<main><div class="article-head"><div class="article-head-inner"><p class="section-label" id="article-number"></p><h1 id="article-title"></h1><p class="article-byline" id="article-byline" hidden></p></div></div><div class="article-shell"><article class="article-body" id="article-body"></article><div class="article-footer"><a href="index.html">← 返回全部文章</a><a href="#top">回到顶部 ↑</a></div></div></main>
+<script src="articles.js?v=5"></script><script>
+const key=new URLSearchParams(location.search).get('article')||'performance';
+const article=ARTICLES[key]||ARTICLES.performance;
+document.title=article.title+' | SSBS News TV';
+document.getElementById('article-number').textContent=article.number;
+document.getElementById('article-title').textContent=article.title;
+const byline=document.getElementById('article-byline');
+if(article.author){byline.textContent=article.author;byline.hidden=false;}
+const body=document.getElementById('article-body');
+
+function appendLinkedText(element,text){
+  const urlPattern=/https?:\/\/[^\s）)]+/g;
+  let cursor=0;
+  for(const match of text.matchAll(urlPattern)){
+    element.append(document.createTextNode(text.slice(cursor,match.index)));
+    let url=match[0];
+    let trailing='';
+    while(/[。，、；：！？”’」』】》]$/.test(url)){
+      trailing=url.slice(-1)+trailing;
+      url=url.slice(0,-1);
+    }
+    const link=document.createElement('a');
+    link.href=url;
+    link.textContent=url;
+    link.target='_blank';
+    link.rel='noopener noreferrer';
+    element.append(link);
+    if(trailing) element.append(document.createTextNode(trailing));
+    cursor=match.index+match[0].length;
+  }
+  element.append(document.createTextNode(text.slice(cursor)));
+}
+
+article.paragraphs.forEach(text=>{
+  let el;
+  if(text.startsWith('Part ')){
+    el=document.createElement('h2');
+  }else{
+    el=document.createElement('p');
+    if(text.startsWith('http')||text==='参考文章：'||text==='参考资料') el.className='source-line';
+    if(text.startsWith('“')||text.startsWith('The ')||text.startsWith('I believe')) el.classList.add('quote');
+  }
+  appendLinkedText(el,text);
+  body.appendChild(el);
+});
+</script></body></html>
