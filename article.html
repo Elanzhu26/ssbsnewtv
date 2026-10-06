@@ -1,5 +1,5 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SSBS News TV 新闻写作指南"><title>SSBS News TV</title><link rel="stylesheet" href="styles.css"></head><body class="article-page" id="top">
-<header class="site-header"><a class="brand" href="index.html">SSBS NEWS <i>TV</i></a><nav><a href="index.html">全部文章</a></nav></header>
+<header class="site-header"><a class="brand" href="index.html">SSBS NEWS <i>TV</i></a><nav><a href="index.html">全部文章</a><button class="language-button" type="button" data-translate-en>English</button></nav></header>
 <main><div class="article-head"><div class="article-head-inner"><p class="section-label" id="article-number"></p><h1 id="article-title"></h1><p class="article-byline" id="article-byline" hidden></p></div></div><div class="article-shell"><article class="article-body" id="article-body"></article><div class="article-footer"><a href="index.html">← 返回全部文章</a><a href="#top">回到顶部 ↑</a></div></div></main>
 <script src="articles.js?v=5"></script><script>
 const key=new URLSearchParams(location.search).get('article')||'performance';
@@ -46,4 +46,4 @@ article.paragraphs.forEach(text=>{
   appendLinkedText(el,text);
   body.appendChild(el);
 });
-</script></body></html>
+</script><script src="translate.js?v=1"></script></body></html>
